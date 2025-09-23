@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Book Class Example</title>
+</head>
+<body>
+  <script>
+    class Book {
+      constructor(title, author, price) {
+        this.title = title;
+        this.author = author;
+        this.price = price;
+      }
+
+     
+      getTitle() {
+        return this.title;
+      }
+
+      
+      getAuthor() {
+        return this.author;
+      }
+
+      
+      setPrice(newPrice) {
+        if (typeof newPrice === "number" && newPrice > 0) {
+          this.price = newPrice;
+        } else {
+          console.log("Invalid price. Must be a number greater than 0.");
+        }
+      }
+
+      getDetails() {
+        return `Title: ${this.title}, Author: ${this.author}, Price: ${this.price}`;
+      }
+    }
+
+    
+     myBook = new Book("The Alchemist", "Paulo Coelho", 300);
+
+    console.log("Original Book Details:");
+    console.log(myBook.getDetails());
+
+    
+    myBook.setPrice(-50);  
+   
+    
+    myBook.setPrice(450);  
+
+    console.log("Final Book Details:");
+    console.log(myBook.getDetails());
+  </script>
+</body>
+</html>
