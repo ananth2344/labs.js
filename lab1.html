@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JSON Handling</title>
+</head>
+<body>
+  <script>
+    
+    const jsonText = `{
+      "name": "Anantha Krishnan",
+      "email": "anantha@example.com",
+      "message": "Hello, this is a test!"
+    }`;
+
+    
+    const processMessage = () => {
+      try {
+       
+        const userObj = JSON.parse(jsonText);
+
+        
+        console.log(`Message received from ${userObj.name}`);
+      } catch (error) {
+        
+        console.error("Error parsing JSON:", error.message);
+      }
+    };
+
+    
+    processMessage();
+  </script>
+</body>
+</html>
