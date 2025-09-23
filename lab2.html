@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Feedback Check</title>
+</head>
+<body>
+  <h2>User Feedback Result</h2>
+  <p id="result"></p>
+
+  <script>
+    
+    const jsonString = `{
+      "name": "Anantha Krishnan",
+      "email": "anantha@example.com",
+      "feedback": "Thank you for the great support!"
+    }`;
+
+    try {
+      
+      const userData = JSON.parse(jsonString);
+
+      
+      const checkFeedback = (data) => {
+        const feedbackText = data.feedback.toLowerCase(); // case-insensitive
+        if (feedbackText.includes("thank")) {
+          document.getElementById("result").innerText = "Positive feedback received";
+        } else {
+          document.getElementById("result").innerText = "Feedback noted";
+        }
+      };
+
+     
+      checkFeedback(userData);
+
+    } catch (error) {
+      document.getElementById("result").innerText = "Invalid JSON provided: " + error.message;
+    }
+  </script>
+</body>
+</html>
