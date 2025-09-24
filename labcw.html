@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Feedback Page</title>
+  <style>
+    #confirmation {
+      color: green;
+      font-weight: bold;
+      margin-top: 10px;
+      display: none; /* hidden by default */
+    }
+    #feedbackDisplay {
+      margin-top: 20px;
+      font-size: 1.1em;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+  <h2>Feedback Form</h2>
+  <form id="feedbackForm">
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" required><br><br>
+    
+    <label for="feedback">Feedback:</label><br>
+    <textarea id="feedback" rows="4" cols="40" required></textarea><br><br>
+    
+    <button type="submit">Submit</button>
+  </form>
+
+  <p id="confirmation">Thanks for your feedback!</p>
+
+  <div id="feedbackDisplay"></div>
+
+  <script>
+    const form = document.getElementById("feedbackForm");
+    const nameInput = document.getElementById("name");
+    const feedbackInput = document.getElementById("feedback");
+    const confirmation = document.getElementById("confirmation");
+    const feedbackDisplay = document.getElementById("feedbackDisplay");
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault(); // prevent reload
+
+      // Display user input
+      feedbackDisplay.innerHTML = 
+        `<strong>${nameInput.value}</strong>: ${feedbackInput.value}`;
+      
+      // Show confirmation message
+      confirmation.style.display = "block";
+
+      // Hide confirmation after 5 seconds
+      setTimeout(() => {
+        confirmation.style.display = "none";
+      }, 5000);
+
+      // Clear inputs
+      form.reset();
+    });
+
+    // Change feedback display color on hover
+    feedbackDisplay.addEventListener("mouseover", function() {
+      feedbackDisplay.style.color = "blue";
+    });
+
+    feedbackDisplay.addEventListener("mouseout", function() {
+      feedbackDisplay.style.color = "black";
+    });
+  </script>
+</body>
+</html>
