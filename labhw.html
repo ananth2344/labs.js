@@ -26,15 +26,15 @@
     const input = document.getElementById("userInput");
     const output = document.getElementById("output");
 
-    // Prevent page reload and set text
+   
     form.addEventListener("submit", function(event) {
-      event.preventDefault(); // stop reload
+      event.preventDefault(); 
       output.textContent = input.value;
       output.style.color = "blue";
-      input.value = ""; // clear text box
+      input.value = "";
     });
 
-    // Hover effects
+ 
     output.addEventListener("mouseover", function() {
       output.style.color = "green";
     });
