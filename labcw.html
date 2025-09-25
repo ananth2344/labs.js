@@ -41,25 +41,25 @@
     const feedbackDisplay = document.getElementById("feedbackDisplay");
 
     form.addEventListener("submit", function(event) {
-      event.preventDefault(); // prevent reload
+      event.preventDefault(); 
 
-      // Display user input
+
       feedbackDisplay.innerHTML = 
         `<strong>${nameInput.value}</strong>: ${feedbackInput.value}`;
       
-      // Show confirmation message
+      
       confirmation.style.display = "block";
 
-      // Hide confirmation after 5 seconds
+    
       setTimeout(() => {
         confirmation.style.display = "none";
       }, 5000);
 
-      // Clear inputs
+    
       form.reset();
     });
 
-    // Change feedback display color on hover
+   
     feedbackDisplay.addEventListener("mouseover", function() {
       feedbackDisplay.style.color = "blue";
     });
